@@ -7,6 +7,9 @@ $username = "admin";
 $password = "123456789";
 $dbname = "project2";
 
+// enable sessions
+session_start();
+
 require("../includes/helpers.php");
 // if user reached page via GET (as by clicking a link or via redirect)
     if ($_SERVER["REQUEST_METHOD"] == "GET")
@@ -52,7 +55,7 @@ require("../includes/helpers.php");
                 	$_SESSION["id"] = $row["id"];
 
                 	// redirect to portfolio
-                	redirect("/");
+                	redirect("/portfolio.php");
             	}
 	    }
         }

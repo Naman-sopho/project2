@@ -1,7 +1,9 @@
 <?php
  	function apologize($message)
     {
+	render("header.php", ["title" => "|Sorry"]);
         render("apology.php", ["message" => $message]);
+	render("footer.php");
 	die();
     }
 
@@ -77,6 +79,26 @@
 	function query($conn, $string)
 	{
 		$result = mysqli_query($conn, $string);
+		return $result;
+	}
+
+	function if_empty($check, $message)
+	{
+		if (empty($check))
+			apologize($message);
+	}
+
+	// sanitizes user input for html or sql
+	function sanitize($target, $lang)
+	{
+		$result = "";		
+		
+		$conn = database_connect();
+		if($lang === "sql")
+			$result = mysqli_real_escape_string($conn, $target);
+		else if($lang === "html")
+			$result = htmlspecialchars($target);
+		
 		return $result;
 	}
 ?>
