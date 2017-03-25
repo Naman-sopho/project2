@@ -3,3 +3,9 @@
 	margin-right: auto;
 	text-align: center;
 }
+
+ul li{
+   list-style-type: none;
+   display: inline;
+	padding: 20px;
+}

@@ -32,9 +32,7 @@
             // extract variables into local scope
             extract($values);
 			
-			require("../views/header.php");
             require("../views/{$view}");
-			require("../views/footer.php");
         }
 
         // else err
