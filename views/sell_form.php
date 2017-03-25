@@ -1,8 +1,3 @@
-<?php
-
-render("../views/header.php", ["title" => "|Sell item"]);
-
-?>
 
 <form id="sell_form" action="/sell.php" method="POST">
 	<select name="category">
@@ -21,14 +16,15 @@ render("../views/header.php", ["title" => "|Sell item"]);
 	<br>
 	<textarea name="info" type="text" placeholder="Contact info (Min. 4 char)"></textarea>
 	<br>
-	<input name="radio" checked="checked"value="1" type="radio">
+	<input name="radio" value="1" type="radio" onclick = "document.getElementById('price').style.visibility='hidden' ;">
 	I want to Donate
-	<input name="radio" value="0" type="radio">
+	<input name="radio" value="0" checked="checked" type="radio" onclick = "document.getElementById('price').style.visibility='visible' ;">
 	I want to Sell
 	<br>
-	<input name="price" placeholder="Your Price (In Rs.)" type="text">
+	<input name="price" id="price" placeholder="Your Price (In Rs.)" type="text">
 	<br>
 	Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload"><br>
 	<button type="submit" form="sell_form">Submit</button>
 </form>
+
