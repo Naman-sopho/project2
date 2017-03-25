@@ -9,7 +9,7 @@
 
 <div class="container">
 	<div class="logo">
-		<img src="img/logo.jpeg">
+		<a href="index.php"><img src="img/logo.jpeg"></a>
 	</div>
 	<div class="nav">
 		<?php if (!empty($_SESSION["id"])): ?>

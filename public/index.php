@@ -15,4 +15,4 @@ render("../views/header.php", ["title" => "|Home"]);
 	<? redirect("portfolio.php"); ?>
 
 <? endif; ?>
-?>
+
