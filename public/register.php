@@ -4,11 +4,14 @@
 
 	require("../includes/helpers.php");
 
+	session_start();
+
     // if user reached page via GET (as by clicking a link or via redirect)
     if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
         // else render form
-        render("register_form.php", ["title" => "Register"]);
+	render("../views/header.php", ["title" => "|Register"]);
+        render("register_form.php");
     }
 
     // else if user reached page via POST (as by submitting a form via POST)

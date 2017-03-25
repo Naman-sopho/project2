@@ -6,3 +6,18 @@
 	<title><?= $title ?></title>
 </head>
 <body>
+
+<div class="container">
+	<div class="logo">
+		<img src="img/logo.jpeg">
+	</div>
+	<div class="nav">
+		<?php if (!empty($_SESSION["id"])): ?>
+        	            <ul>
+        	                <li><a href="portfolio.php">Portfolio</a></li>
+        	                <li><a href="items.php">Items Available</a></li>
+        	                <li><a href="sell.php">Sell</a></li>
+        	                <li><a href="logout.php"><strong>Log Out</strong></a></li>
+        	            </ul>
+        	<?php endif; ?>
+	</div>
