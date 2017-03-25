@@ -6,3 +6,11 @@
 	<title><?= $title ?></title>
 </head>
 <body>
+<header>
+	<li><button>Books </button></li>
+	<li><button>Electronics </button></li>
+	<li><button>Sports </button></li>
+	<li><button>Vehicles </button></li>
+	<li><button>Furniture </button></li>
+	<li><button>Clothing </button></li>
+</header>
