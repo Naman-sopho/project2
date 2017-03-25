@@ -1,11 +1,20 @@
-* {
+body{
+	background-color: lightblue ;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 }
 
+footer{
+	background-color: grey ;
+}
+
+li{
+	display: inline-block ;
+}
+
 ul li{
    list-style-type: none;
    display: inline;
-	padding: 20px;
+	 padding: 20px;
 }
