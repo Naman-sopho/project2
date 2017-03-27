@@ -13,12 +13,13 @@ $query = "SELECT * FROM items";
 $rows = query($conn, $query);
 
 $colleges = query($conn, "SELECT college FROM items");
+$items = 1;
 
 render("../views/header.php", ["title" => "|Items"]);
 
 if ($_SERVER["REQUEST_METHOD"] === "GET")
 {
-	render("../views/items_view.php", ["result" => $rows, "colleges" => $colleges]);
+	render("../views/items_view.php", ["result" => $rows, "colleges" => $colleges, "items" => $items]);
 }
 
 else
@@ -27,7 +28,7 @@ else
 	if (empty($_POST["category"]) && empty($_POST["college"]))
 	{
 		echo "<h3>Please select a Category or College for filtering results</h3>";
-		render("../views/items_view.php", ["result" => $rows, "colleges" => $colleges]);
+		render("../views/items_view.php", ["result" => $rows, "colleges" => $colleges, "items" => $items]);
 	}
 	
 	// if only college is entered
@@ -39,7 +40,7 @@ else
 		// render filtered results
 
 		if (mysqli_num_rows($row) > 0)
-			render("../views/items_view.php", ["result" => $row, "colleges" => $colleges]);
+			render("../views/items_view.php", ["result" => $row, "colleges" => $colleges, "items" => $items]);
 		else
 			echo "<h1>Sorry!</h1><p>No items match your query.</p>";
 	}
@@ -52,7 +53,7 @@ else
 		
 		// render filtered results
 		if (mysqli_num_rows($row) > 0)
-			render("../views/items_view.php", ["result" => $row, "colleges" => $colleges]);
+			render("../views/items_view.php", ["result" => $row, "colleges" => $colleges, "items" => $items]);
 		else
 			echo "<h1>Sorry!</h1><p>No items match your query.</p>";
 	}
@@ -65,7 +66,7 @@ else
 
 		//render filtered results
 		if (mysqli_num_rows($row) > 0)
-			render("../views/items_view.php", ["result" => $row, "colleges" => $colleges]);
+			render("../views/items_view.php", ["result" => $row, "colleges" => $colleges, "items" => $items]);
 		else
 			echo "<h1>Sorry!</h1><p>No items match your query.</p>";
 	}

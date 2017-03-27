@@ -2,6 +2,8 @@
 //Displays list of currently available items for sale
 //and also a category or college search
 ?>
+
+<? if (isset($items)): ?>
 <h4>Select a Category or College to filter products</h4>
 <form id="items" action="items.php" method="POST">
 	<select name="category">
@@ -22,7 +24,7 @@
 	</select>
 		<button type="submit" form="items">Submit</button>
 </form>
-
+<? endif; ?>
 <table style="padding:20px">
 	<thead>
 		<tr>
