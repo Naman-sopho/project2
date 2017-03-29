@@ -63,6 +63,8 @@
 				<td><?=$item["contact"]?> (Your Ad)</td>
 			<? elseif(!isset($contact)): ?>
 				<td><a href="contact_seller.php?ad_id=<?=$item["ad_id"]?>">Contact Seller</a></td>
+			<? else: ?>
+				<td><?=$item["contact"]?></td>
 			<? endif; ?>
 		</tr>
 		<?php endwhile; ?>
