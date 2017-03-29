@@ -2,8 +2,6 @@
 //Displays list of currently available items for sale
 //and also a category or college search
 ?>
-
-<? if (isset($items)): ?>
 <h4>Select a Category or College to filter products</h4>
 <form id="items" action="items.php" method="POST">
 	<select name="category">
@@ -24,7 +22,7 @@
 	</select>
 		<button type="submit" form="items">Submit</button>
 </form>
-<? endif; ?>
+
 <table style="padding:20px">
 	<thead>
 		<tr>
@@ -59,11 +57,7 @@
 					case 7: echo "Others"; break;
 				}?>
 			<td><?=$item["date"]?></td>
-			<? if (!isset($contact)): ?>
-				<td><a href="contact_seller.php?ad_id=<?=$item["ad_id"]?>">Contact Seller</a></td>
-			<? else: ?>
-				<td><?=$item["contact"]?></td>
-			<? endif; ?>
+			<td><a href="contact_seller.php?ad_id=<?=$item["ad_id"]?>">Contact Seller</a>
 		</tr>
 		<?php endwhile; ?>
 	</tbody>
