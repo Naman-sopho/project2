@@ -59,8 +59,8 @@
 					case 7: echo "Others"; break;
 				}?>
 			<td><?=$item["date"]?></td>
-			<? if ($_SESSION["id"] == $item["user_id"]): ?>
-				<td><?=$item["contact"]?> (Your Ad)</td>
+			<? if (!empty($_SESSION["id"]) && $_SESSION["id"] == $item["user_id"]):?>
+					<td><?=$item["contact"]?> (Your Ad)</td>
 			<? elseif(!isset($contact)): ?>
 				<td><a href="contact_seller.php?ad_id=<?=$item["ad_id"]?>">Contact Seller</a></td>
 			<? else: ?>
