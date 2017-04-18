@@ -3,7 +3,7 @@
 //and also a category or college search
 ?>
 
-<? if (isset($items)): ?>
+<?php if (isset($items)): ?>
 <h4>Select a Category or College to filter products</h4>
 <form id="items" action="items.php" method="POST">
 	<select name="category">
@@ -18,13 +18,13 @@
 	</select>
 	<select name="college">
 		<option value="0" select="selected">Select College</option>
-		<? while($college = mysqli_fetch_assoc($colleges)): ?>
+		<?php while($college = mysqli_fetch_assoc($colleges)): ?>
 			<option value="<?=$college["college"]?>"><?=$college["college"]?></option>
-		<? endwhile; ?>
+		<?php endwhile; ?>
 	</select>
 		<button type="submit" form="items">Submit</button>
 </form>
-<? endif; ?>
+<?php endif; ?>
 <table style="padding:20px">
 	<thead>
 		<tr>
@@ -43,13 +43,14 @@
 		<tr>
 			<td><img src="img/uploads/<?=$item["image"]?>" height=60px width=60px onerror="this.src='img/noimage.jpg';"></td>
 			<td><?=$item["name"]?></td>
-			<td><?if ($item["price"])
-					echo $item["price"];
-				  else
-					echo "On Donation";
-				?></td>
+			<td><?php if (!empty($item["price"])): ?>
+					<?=$item["price"]?>
+				  <?php else: ?>
+					<?php echo"On Donation"; ?>
+				  <?php endif; ?>	
+			</td>
 			<td><?=$item["college"]?></td>
-			<td><? switch($item["category"]){
+			<td><?php switch($item["category"]){
 					case 1: echo "Books"; break;
 					case 2: echo "Clothing"; break;
 					case 3: echo "Electronics"; break;
@@ -59,13 +60,13 @@
 					case 7: echo "Others"; break;
 				}?>
 			<td><?=$item["date"]?></td>
-			<? if (!empty($_SESSION["id"]) && $_SESSION["id"] == $item["user_id"]):?>
+			<?php if (!empty($_SESSION["id"]) && $_SESSION["id"] == $item["user_id"]):?>
 					<td><?=$item["contact"]?> (Your Ad)</td>
-			<? elseif(!isset($contact)): ?>
+			<?php elseif(!isset($contact)): ?>
 				<td><a href="contact_seller.php?ad_id=<?=$item["ad_id"]?>">Contact Seller</a></td>
-			<? else: ?>
+			<?php else: ?>
 				<td><?=$item["contact"]?></td>
-			<? endif; ?>
+			<?php endif; ?>
 		</tr>
 		<?php endwhile; ?>
 	</tbody>

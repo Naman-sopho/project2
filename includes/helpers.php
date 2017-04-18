@@ -59,10 +59,10 @@
 
 	function database_connect()
 	{
-		$servername = "localhost";
+		$servername = "127.0.0.1";
 		$dbname = "project2";
-		$username = "admin";
-		$password = "123456789";
+		$username = "namantiwari";
+		$password = "zrrJ8zNEdpuTwuty";
 
 		$conn = mysqli_connect($servername, $username, $password, $dbname);
 		if (!$conn)

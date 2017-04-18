@@ -2,11 +2,6 @@
 //Validates input taken from login-form against database
 //Sets a cookie and redirects user to portfolio upon successful validation
 
-$servername = "localhost";
-$username = "admin";
-$password = "123456789";
-$dbname = "project2";
-
 // enable sessions
 session_start();
 
@@ -30,14 +25,10 @@ require("../includes/helpers.php");
         {
             apologize("You must provide your password.");
 		}
-
-		// connect to database
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-		if (!$conn)
-		{
-			apologize("Connection Error: ".mysqli_connect_error());
-		}
-
+        
+        // connecting to database
+		$conn = database_connect();
+		
         // query database for user
 		$query = "SELECT * FROM users WHERE username = '".$_POST["username"]."'";
 		
